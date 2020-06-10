@@ -47,6 +47,7 @@ public class FileTranscriber implements Runnable {
 					outputAudioFile = (new File(outputDirectoryPath, fileNameWithoutExtension + "." + FilenameUtils.getExtension(outputAudioFile.toString()))).toPath();  
 				}
 				File outputTextFile = new File(outputDirectoryPath, fileNameWithoutExtension + ".txt");
+				String outputTextFileName = outputTextFile.getName();
 				// System.out.println(outputFile);
 				FileWriter myWriter = null;
 				Path temp;
@@ -67,7 +68,7 @@ public class FileTranscriber implements Runnable {
 					}
 
 					//create the corresponding text file
-					LOGGER.info(outputTextFile + " is going to be written");
+					LOGGER.info(outputTextFileName + " is going to be written");
 					outputTextFile.createNewFile();
 					myWriter = new FileWriter(outputTextFile);
 					myWriter.write(content);
